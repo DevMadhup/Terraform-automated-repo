@@ -22,6 +22,6 @@ jobs:
 workflows:
   test-deploy:
     jobs:
-      - test
-      - test2
-      - test3
+      - Python
+      - Aws
+      - Deploy
