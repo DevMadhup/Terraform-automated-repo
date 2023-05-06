@@ -1,21 +1,25 @@
 version: 2.1
 
-workflows:
-  test-deploy:
-    jobs:
-      - test
-      - test2
-
 jobs:
-  test:
+  Python:
     docker:
       - image: cimg/python:3.11.3
     steps:
       - checkout
       - run: python --version
-  test2:
+  Aws:
     docker:
       - image: cimg/aws:2023.05
     steps:
       - checkout
       - run: aws --version
+
+  Deploy:
+    steps:
+      - run: echo "Deploying to server"
+workflows:
+  test-deploy:
+    jobs:
+      - test
+      - test2
+      - test3
