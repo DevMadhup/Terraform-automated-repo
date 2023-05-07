@@ -23,5 +23,7 @@ workflows:
   test-deploy:
     jobs:
       - Python
-      - Aws
+      - Aws:
+          requires:
+              - Python
       - Deploy
